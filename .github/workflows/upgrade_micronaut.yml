@@ -12,7 +12,6 @@ jobs:
       - name: Fetch Micronaut Maven descriptor
         run: curl https://repo1.maven.org/maven2/io/micronaut/micronaut-core/maven-metadata.xml -o /tmp/micronaut-maven-descriptor.xml
       - name: Extract the latest version
-        working-directory: ./backend
         uses: QwerMike/xpath-action@v1
         id: xpath
         with:
@@ -27,9 +26,9 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
       - uses: eskatos/gradle-command-action@v1
-        working-directory: ./backend
         name: Testing build
         with:
+          build-root-directory: ./backend
           arguments: assemble --stacktrace
       - name: Create Pull Request
         id: cpr
