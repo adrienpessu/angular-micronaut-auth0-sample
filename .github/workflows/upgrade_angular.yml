@@ -1,4 +1,4 @@
-name: Update Micronaut
+name: Update Angular
 on:
   schedule:
     - cron: '30 0 * * *'
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Fetch Micronaut Maven descriptor
+      - name: Angular update
         working-directory: frontend
         run: | 
           npm i
@@ -19,14 +19,14 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: Upgraded to Micronaut ${{ steps.xpath.outputs.result }}
-          title: '[Upgrade] Upgraded to Micronaut ${{ steps.xpath.outputs.result }}'
+          commit-message: Upgraded to Angular ${{ steps.xpath.outputs.result }}
+          title: '[Upgrade] Upgraded to Angular ${{ steps.xpath.outputs.result }}'
           body: |
-            There is a newer version ${{ steps.xpath.outputs.result }} of Micronaut available. The dependency has been updated and the inspection tools
+            There is a newer version ${{ steps.xpath.outputs.result }} of Angular available. The dependency has been updated and the inspection tools
             have been regenerated.
           labels: chore,upgrade
           assignees: adrienpessu
-          branch: upgrade/micronaut
+          branch: upgrade/angular
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
