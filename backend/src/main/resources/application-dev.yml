@@ -1,0 +1,8 @@
+micronaut:
+  security:
+    token:
+      jwt:
+        signatures:
+          jwks:
+            auth0:
+              url: 'https://dev-adrien.eu.auth0.com/.well-known/jwks.json'

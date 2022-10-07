@@ -1,0 +1,17 @@
+micronaut:
+  server:
+    cors:
+      enabled: true
+  application:
+    name: backend
+  security:
+    token:
+      jwt:
+        signatures:
+          jwks:
+            auth0:
+              url: ${OAUTH_JWTKS_URL}
+netty:
+  default:
+    allocator:
+      max-order: 3

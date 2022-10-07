@@ -1,0 +1,22 @@
+<p>home works!</p>
+
+<ng-container *ngIf="auth.isAuthenticated$ | async">
+  <div>
+    Hello {{ (auth.user$ | async)?.name }}
+  </div>
+  <button (click)="auth.logout()">Log out</button>
+  <pre>
+    <code>
+      {{ user }}
+    </code>
+  </pre>
+  <hr/>
+  <button (click)="apiCall()">API call</button>
+  <pre>
+    <code>{{ output }}</code>
+  </pre>
+</ng-container>
+
+<ng-container *ngIf="!(auth.isAuthenticated$ | async)">
+  <button (click)="auth.loginWithRedirect()">Log in</button>
+</ng-container>
