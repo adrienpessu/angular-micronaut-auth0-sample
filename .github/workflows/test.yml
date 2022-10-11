@@ -42,4 +42,9 @@ jobs:
           OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
           OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
           OAUTH_DOMAIN: ${{ secrets.OAUTH_DOMAIN }}
+      - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
+        with:
+          name: e2e-video
+          path: frontend/cypress/videos/*
 
