@@ -2,7 +2,7 @@
 
 <ng-container *ngIf="auth.isAuthenticated$ | async">
   <div>
-    Hello {{ (auth.user$ | async)?.name }}
+    Hello <div id="greatings">{{ (auth.user$ | async)?.name }}</div>
   </div>
   <button (click)="auth.logout()">Log out</button>
   <pre>
