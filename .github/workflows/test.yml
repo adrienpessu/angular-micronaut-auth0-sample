@@ -39,9 +39,9 @@ jobs:
         run: npm i && npm run build-dev && npm run e2e-ci
         working-directory: frontend
         env:
-          OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
-          OAUTH_DOMAIN: ${{ secrets.OAUTH_DOMAIN }}
+          OAUTH_JWTKS_URL: ${{ secrets.OAUTH_JWTKS_URL }}
+          CYPRESS_AUTH_PASSWORD: ${{ secrets.CYPRESS_AUTH_PASSWORD }}
+          CYPRESS_AUTH_USERNAME: ${{ secrets.CYPRESS_AUTH_USERNAME }}
       - uses: actions/upload-artifact@v3
         if: ${{ failure() }}
         with:
