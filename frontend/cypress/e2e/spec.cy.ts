@@ -20,10 +20,15 @@ describe('Nominal test', () => {
             cy.get('button[type=submit][value=default]').click()
             cy.url({timeout: 35000}).should('contain', '4200')
           }
+
+          cy.get('div#greatings', {timeout: 35000})
+            .should('have.text', Cypress.env('AUTH_USERNAME'));
+          cy.get('button#api').click();
+          cy.get('code#apiResult', {timeout: 35000}).should('contain', 'adrien');
         });
-        debugger;
-        cy.get('div#greatings', {timeout: 35000})
-          .should('have.text', Cypress.env('AUTH_USERNAME'));
+
+
+
       }
     });
   })
