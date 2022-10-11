@@ -13,17 +13,17 @@ describe('Nominal test', () => {
           if (url.indexOf(".eu.auth0.com") > -1) {
             cy.url({timeout: 35000}).should('contain', 'state=');
             cy.get('#username')
-              .invoke('attr', 'value', Cypress.env('auth_username'),)
-              .should('have.attr', 'value', Cypress.env('auth_username'),);
-            cy.get('#password').invoke('attr', 'value', Cypress.env('auth_password'),)
-              .should('have.attr', 'value', Cypress.env('auth_password'),)
+              .invoke('attr', 'value', Cypress.env('AUTH_USERNAME'),)
+              .should('have.attr', 'value', Cypress.env('AUTH_USERNAME'),);
+            cy.get('#password').invoke('attr', 'value', Cypress.env('AUTH_PASSWORD'),)
+              .should('have.attr', 'value', Cypress.env('AUTH_PASSWORD'),)
             cy.get('button[type=submit][value=default]').click()
             cy.url({timeout: 35000}).should('contain', '4200')
           }
         });
         debugger;
         cy.get('div#greatings', {timeout: 35000})
-          .should('have.text', Cypress.env('auth_username'));
+          .should('have.text', Cypress.env('AUTH_USERNAME'));
       }
     });
   })
