@@ -2,3 +2,5 @@
 node_modules
 dist
 .idea
+.idea/compiler.xml
+.idea/gradle.xml
