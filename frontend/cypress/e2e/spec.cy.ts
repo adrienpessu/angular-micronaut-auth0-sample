@@ -10,7 +10,11 @@ describe('Nominal test', () => {
         cy.get('button#login').click();
 
         cy.url({timeout: 35000}).then(url => {
-          if (url.indexOf(".eu.auth0.com") > -1) {
+
+          const currentURL = new URL(url);
+          currentURL.host
+
+          if (currentURL.host.endsWith(".eu.auth0.com")) {
             cy.url({timeout: 35000}).should('contain', 'state=');
             cy.get('#username')
               .invoke('attr', 'value', Cypress.env('AUTH_USERNAME'),)
