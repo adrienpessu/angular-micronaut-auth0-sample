@@ -1,7 +1,7 @@
 name: Update Angular
 on:
-  schedule:
-    - cron: '30 0 * * *'
+   schedule:
+     - cron: '30 0 1 * *'
   workflow_dispatch:
 jobs:
   update:
